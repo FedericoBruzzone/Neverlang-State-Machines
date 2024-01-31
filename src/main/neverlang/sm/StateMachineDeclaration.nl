@@ -2,11 +2,16 @@ module sm.StateMachineDeclaration {
     reference syntax {
         declaration:
             StateMachineDeclaration <-- "state" "machine" SMIdentifier "{" SMStatementList "}";
+
+        program:
+            Program <-- StateMachineDeclaration;
+
     }
 
     role(type-checker) {
+
+        // initRoot machine
         0 <typeLang> .{
-            initRoot
             define scope file ($file ?? global)
             enter scope
             eval $1
@@ -15,6 +20,13 @@ module sm.StateMachineDeclaration {
             ]
             exit scope
         }.
+
+
+        program: <typeLang> .{
+            initRoot machine
+        }.
+
+
     }
 
     role(evaluation) {

@@ -9,6 +9,7 @@ import neverlang.core.typesystem.symboltable.EntryKind;
 import neverlang.core.typesystem.typenv.EntryTypeBinder;
 import org.eclipse.lsp4j.SemanticTokenTypes;
 import org.eclipse.lsp4j.SymbolKind;
+import simplelang.symboltable.CompilationHelper;
 import sm.StateMachineModule;
 
 import java.util.Map;
@@ -27,7 +28,7 @@ public class TypeMachine extends DefaultTypeScope {
         return "machine";
     }
 
-    @Callback(id = "validateFinalState")
+    @Callback(keyword = "validateFinalState")
     public void validate(SymbolTableEntry entry, CompilationHelper helper) {
         var initialCounter = new AtomicInteger(0);
         var finalCounter = new AtomicInteger(0);

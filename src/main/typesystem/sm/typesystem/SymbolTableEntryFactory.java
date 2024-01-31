@@ -20,6 +20,11 @@ public class SymbolTableEntryFactory extends neverlang.core.typesystem.SymbolTab
     private StateModifier modifier = StateModifier.NORMAL;
 
     @Override
+    public String getIdentifierFromToken(Token token) {
+        return Optional.ofNullable(token).map(Token::text).orElse(null);
+    }
+
+    @Override
     public String getIdentifierFromToken() {
         return Optional.ofNullable(token()).map(Token::text).orElse(null);
     }
@@ -41,7 +46,8 @@ public class SymbolTableEntryFactory extends neverlang.core.typesystem.SymbolTab
                 entryType(),
                 entryDetails(),
                 foldingRange(),
-                entryKind()
+                entryKind(),
+                0
         );
     }
 }

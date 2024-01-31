@@ -9,7 +9,10 @@ language sm.StateMachinesLSPLang {
     endemic slices
         sm.LSPEndemicSlice
     roles syntax <+ type-checker
+
+    /*
     rename {
         StateMachineDeclaration --> Program;
     }
+    */
 }

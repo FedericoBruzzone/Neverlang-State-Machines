@@ -15,7 +15,8 @@ def baseUrl = "https://maven.adapt-lab.di.unimi.it"
 def releasesRepoUrl = "${baseUrl}/neverlang/releases"
 def snapshotsRepoUrl = "${baseUrl}/neverlang/snapshots"
 
-def neverlangVersion = "2.5.5-SNAPSHOT"
+//def neverlangVersion = "2.5.5-SNAPSHOT"
+def neverlangVersion = "2.5.6-SNAPSHOT"
 
 sourceSets {
     typesystem {
@@ -70,20 +71,39 @@ test {
 }
 
 dependencies {
+    //implementation "it.unimi.di.adaptlab:neverlang-typesystem:1.0-SNAPSHOT"
+    implementation "it.unimi.di.adaptlab:neverlang-typesystem:1.0.1-SNAPSHOT"
+
+    //implementation "it.unimi.di.adaptlab:neverlang-lsp-core:1.0-SNAPSHOT"
+    implementation "it.unimi.di.adaptlab:neverlang-lsp-core:1.0.1-SNAPSHOT"
+
+    //typesystemImplementation "it.unimi.di.adaptlab:neverlang-typesystem:1.0-SNAPSHOT"
+    typesystemImplementation "it.unimi.di.adaptlab:neverlang-typesystem:1.0.1-SNAPSHOT"
+
+    //typesystemImplementation "it.unimi.di.adaptlab:neverlang-lsp-core:1.0-SNAPSHOT"
+    typesystemImplementation "it.unimi.di.adaptlab:neverlang-lsp-core:1.0.1-SNAPSHOT"
+
+    typesystemImplementation "it.unimi.di.adaptlab:simplelang-lsp:1.0.1-SNAPSHOT"
+    typesystemImplementation "it.unimi.di.adaptlab:simplelang-typesystem:1.0.1-SNAPSHOT"
+
+    implementation "it.unimi.di.adaptlab:simplelang-lsp:1.0.1-SNAPSHOT"
+    implementation "it.unimi.di.adaptlab:simplelang-typesystem:1.0.1-SNAPSHOT"
+
 
     testImplementation 'org.jgrapht:jgrapht-io:1.5.1'
     implementation sourceSets.named("typesystem").get().output
     implementation "it.unimi.di.adaptlab:neverlang-core:${neverlangVersion}"
     implementation "it.unimi.di.adaptlab:neverlang-dexter:${neverlangVersion}"
+    typesystemImplementation "it.unimi.di.adaptlab:neverlang-core:${neverlangVersion}"
+    typesystemImplementation "it.unimi.di.adaptlab:neverlang-dexter:${neverlangVersion}"
     testImplementation "it.unimi.di.adaptlab:neverlang-junit-extension:${neverlangVersion}"
     testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
-    implementation "it.unimi.di.adaptlab:neverlang-lsp-core:1.0-SNAPSHOT"
-    implementation "it.unimi.di.adaptlab:neverlang-typesystem:1.0-SNAPSHOT"
-    typesystemImplementation "it.unimi.di.adaptlab:neverlang-lsp-core:1.0-SNAPSHOT"
-    typesystemImplementation "it.unimi.di.adaptlab:neverlang-typesystem:1.0-SNAPSHOT"
-    typesystemImplementation "it.unimi.di.adaptlab:neverlang-core:${neverlangVersion}"
-    typesystemImplementation "it.unimi.di.adaptlab:neverlang-dexter:${neverlangVersion}"
+//    implementation "it.unimi.di.adaptlab:neverlang-lsp-core:1.0-SNAPSHOT"
+//    implementation "it.unimi.di.adaptlab:neverlang-typesystem:1.0-SNAPSHOT"
+//    typesystemImplementation "it.unimi.di.adaptlab:neverlang-lsp-core:1.0-SNAPSHOT"
+//    typesystemImplementation "it.unimi.di.adaptlab:neverlang-typesystem:1.0-SNAPSHOT"
+
 }
 
 task runSM(type: neverlang.execClass){
