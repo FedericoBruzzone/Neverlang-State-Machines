@@ -6,8 +6,8 @@ language sm.StateMachinesLSPLang {
         sm.StateDeclaration
         sm.EventList
         sm.EventDeclaration
-    endemic slices
-        sm.LSPEndemicSlice
+//    endemic slices
+//        sm.LSPEndemicSlice
     roles syntax <+ type-checker
 
     /*

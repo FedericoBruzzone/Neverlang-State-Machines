@@ -17,16 +17,17 @@ public class TypeLangTranslatorPlugin extends neverlang.core.typelang.TypeLangTr
         importList.addAll(List.of(
                 "neverlang.core.typesystem.symboltable.EntryKind",
                 "neverlang.core.typesystem.symbols.*",
-                "simplelang.symboltable.CompilationHelper",
-                "simplelang.symboltable.CompilationUnit",
-
                 // We cannot use "sm.typesystem.*" because in "sm" there is another State class
                 "sm.typesystem.Machine",
                 "sm.typesystem.Events",
                 "sm.typesystem.State",
 
 //                "simplelang.graph.*",
-                "neverlang.core.typesystem.Priority"
+                "neverlang.core.typesystem.Priority",
+
+                "simplelang.symboltable.CompilationHelper",
+//                "simplelang.symboltable.CompilationUnit"
+                "neverlang.core.typesystem.defaults.CompilationUnit"
         ));
         return super.formatImports(importList);
     }

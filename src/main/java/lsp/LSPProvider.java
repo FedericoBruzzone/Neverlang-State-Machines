@@ -13,16 +13,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 public class LSPProvider extends NeverlangLSPProvider {
-
-//    @Override
-//    public NeverlangLSPLanguageServer<?> newLanguageServer() {
-//        return new NeverlangLSPLanguageServer<>(
-//                capabilityList,
-//                new StateMachineCompilerHandler(),
-//                new NeverlangLSPDocumentService<>(capabilityList),
-//                new NeverlangLSPWorkspaceService()
-//        );
-//    }
+    
     private static final String typesystem = "sm.typesystem";
 
     @Override

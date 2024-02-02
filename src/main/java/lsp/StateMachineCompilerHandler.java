@@ -8,6 +8,7 @@ import neverlang.core.typesystem.compiler.Compiler;
 import neverlang.core.typesystem.compiler.SourceSet;
 import neverlang.core.typesystem.defaults.DefaultIncrementalCompilationHelper;
 import neverlang.core.typesystem.defaults.DefaultSourceSet;
+import neverlang.runtime.EndemicSlice;
 import neverlang.runtime.Language;
 import neverlang.runtime.LayeredRole;
 import neverlang.runtime.Role;
@@ -46,7 +47,14 @@ public class StateMachineCompilerHandler extends WorkspaceHandler {
     }
 
     @Override
-    public Class<? extends neverlang.core.typesystem.CompilationHelper<?, ?>> compilationHelper() {
+    public Stream<Class<? extends EndemicSlice>> endemicSlices() {
+        return Stream.of(
+            CompilationEndemicSlices.class
+        );
+    }
+
+    @Override
+    public Class<? extends neverlang.core.typesystem.AbstractCompilationHelper<?, ?>> compilationHelper() {
         return CompilationHelper.class;
     }
 
